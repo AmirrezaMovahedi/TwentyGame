@@ -11,15 +11,16 @@ def get_cart():
 
 def determining_score(carts: list) -> int:
     s = 0
-    flag = False
+    counter = 0
     for cart in carts:
         if cart == 'A':
-            flag = True
+            counter += 1
             s += 11
         else:
             s += int(cart)
-    if s > 21 and flag:
+    while s > 21 and counter != 0:
         s -= 10
+        counter -= 1
     return s
 
 
